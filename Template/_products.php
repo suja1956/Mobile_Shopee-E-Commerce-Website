@@ -111,6 +111,25 @@
                                 <button class="qty-up border bg-light" data-id="pro1"><i class="fas fa-angle-up"></i></button>
                                 <input type="text" data-id="pro1" class="qty_input border px-2 w-50 bg-light" disabled value="1" placeholder="1">
                                 <button data-id="pro1" class="qty-down border bg-light"><i class="fas fa-angle-down"></i></button>
+                                <script>
+                                document.querySelectorAll(".qty-up").forEach(button => {
+                                    button.addEventListener("click", function() {
+                                        let input = this.nextElementSibling;
+                                        let currentValue = parseInt(input.value);
+                                        input.value = currentValue + 1;
+                                    });
+                                });
+
+                                document.querySelectorAll(".qty-down").forEach(button => {
+                                    button.addEventListener("click", function() {
+                                        let input = this.previousElementSibling;
+                                        let currentValue = parseInt(input.value);
+                                        if (currentValue > 1) {
+                                            input.value = currentValue - 1;
+                                        }
+                                    });
+                                });
+                                </script>
                             </div>
                         </div>
                         <!-- !product qty section -->
